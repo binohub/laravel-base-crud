@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-12">
 
-                <form action="{{ route('admin.posts.store', $post->id) }}" method="post">
+                <form action="{{ route('admin.posts.store', $post->id) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('POST')
                     @include('admin.posts.include.form')

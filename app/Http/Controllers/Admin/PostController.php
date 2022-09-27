@@ -8,6 +8,7 @@ use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -18,6 +19,7 @@ class PostController extends Controller
      */
     public function index()
     {
+        // $posts = Post::where('user_id', Auth::id())->get();
         $posts = Post::all();
         return view('admin.posts.index', compact('posts'));
     }
@@ -81,6 +83,10 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::findOrFail($id);
+
+        $img_path = Storage::put('uploads', $post->image);
+        // dd($img_path);
+
         return view('admin.posts.edit', compact('post'));
     }
 

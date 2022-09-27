@@ -19,7 +19,16 @@
                     <img src="{{ $post->image }}" class="card-img" alt="{{ $post->image }}">
                     <div class="card-img-overlay">
                         <h1 class="card-title text-uppercase">{{ $post->title }}</h1>
-                        <h6 class="text-uppercase font-italic">{{ $post->author }}</h6>
+                        <h6 class="text-uppercase font-italic">{{ $post->user->name }}</h6>
+                        <p>{{ $post->user->name }} has the roles of: 
+                            @forelse ($post->user->roles as $role)
+                                <li>
+                                    {{ $role->name }}
+                                </li>
+                            @empty
+                             No Roles
+                            @endforelse
+                        </p>
                         <p class="card-text text-lowercase">{{ $post->description }}</p>
                         <p class="text-lowercase font-italic">{{ $post->date }}</p>
                     </div>

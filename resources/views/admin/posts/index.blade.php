@@ -26,7 +26,7 @@
                             <tr>
                                 <th>{{ $post->id }}</th>
                                 <td>{{ $post->title }}</td>
-                                <td>{{ $post->author }}</td>
+                                <td>{{ $post->user->name }}</td>
                                 <td>
                                     <a href="{{ route('admin.posts.show', $post->id) }}" class="btn btn-sm btn-primary">
                                         View

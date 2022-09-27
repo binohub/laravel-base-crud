@@ -34,8 +34,8 @@
     </div>
     <div class="form-group p-3">
         <label for="exampleInputPic">pic</label>
-        <input name="image" type="text" class="form-control" id="exampleInputPic" aria-describedby="picHelp"
-            placeholder="enter image" value="{{ $post->image }}">
+        <input name="image" type="file" class="form-control" id="exampleInputPic" aria-describedby="picHelp"
+            placeholder="enter image" value="{{ asset('/storage' . '/' . $post->image) }}">
         @error('pic')
             <div class="alert alert-danger">
                 {{ $image }}
